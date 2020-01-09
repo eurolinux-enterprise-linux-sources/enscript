@@ -1,7 +1,7 @@
 Summary: A plain ASCII to PostScript converter
 Name: enscript
 Version: 1.6.6
-Release: 4%{?dist}
+Release: 6%{?dist}
 License: GPLv3+
 Group: Applications/Publishing
 URL: http://www.gnu.org/software/enscript
@@ -112,6 +112,12 @@ fi
 %config(noreplace) %{_sysconfdir}/enscript.cfg
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.6.6-6
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.6.6-5
+- Mass rebuild 2013-12-27
+
 * Mon May 13 2013 Tim Waugh <twaugh@redhat.com> - 1.6.6-4
 
 - Fixed word-wrapping crash in tokenizer (bug #870639).
