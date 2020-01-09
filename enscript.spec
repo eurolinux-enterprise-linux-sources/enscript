@@ -1,7 +1,7 @@
 Summary: A plain ASCII to PostScript converter
 Name: enscript
 Version: 1.6.6
-Release: 6%{?dist}
+Release: 7%{?dist}
 License: GPLv3+
 Group: Applications/Publishing
 URL: http://www.gnu.org/software/enscript
@@ -25,6 +25,7 @@ Patch12:enscript-rh477382.patch
 Patch13:enscript-build.patch
 Patch14:enscript-manfixes.patch
 Patch15: enscript-bufpos-crash.patch
+Patch16: 0001-enscript-newencodings.patch
 
 Requires(preun): /sbin/install-info
 Requires(post): /sbin/install-info
@@ -51,6 +52,7 @@ includes many options for customizing printouts
 %patch13 -p1 -b .build
 %patch14 -p1 -b .manfixes
 %patch15 -p1 -b .bufpos-crash
+%patch16 -p1 -b .newencodings
 
 %{__tar} -C states/hl -zxf %{SOURCE1} ruby.st
 install -pm 644 %{SOURCE2} states/hl/php.st
@@ -112,6 +114,9 @@ fi
 %config(noreplace) %{_sysconfdir}/enscript.cfg
 
 %changelog
+* Wed Jan 30 2019 Zdenek Dohnal <zdohnal@redhat.com> - 1.6.6-7
+- 1573876 - [RFE] Add support for 885915 encoding in enscript
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.6.6-6
 - Mass rebuild 2014-01-24
 
@@ -236,7 +241,7 @@ fi
 * Wed Mar  2 2005 Tim Waugh <twaugh@redhat.com> 1.6.1-30
 - Rebuild for new GCC.
 
-* Tue Jan 29 2005 Tim Waugh <twaugh@redhat.com> 1.6.1-29
+* Sat Jan 29 2005 Tim Waugh <twaugh@redhat.com> 1.6.1-29
 - Applied patch to fix CAN-2004-1186 (bug #144684).
 - Applied patch to fix CAN-2004-1185 (bug #144684).
 - Backported patch to fix CAN-2004-1184 (bug #144684).
